@@ -1,10 +1,16 @@
 from odoo import models, fields
 
-class SaleOrder(models.Model):
-    _inherit = 'sale.order'
+class ProductTemplate(models.Model):
+    _inherit = 'product.template'
 
-    project_id = fields.Many2one(
+    project_list_id = fields.Many2one(
         'project.project',
         string='Project',
+        tracking=True,
+    )
+
+    is_real_estate_relative = fields.Boolean(
+        string='Is Real Estate Relative',
+        default=False,
         tracking=True,
     )
