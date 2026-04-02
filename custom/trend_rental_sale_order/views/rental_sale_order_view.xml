@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="rental_order_form_view_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.al.zaytoun</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_renting.rental_order_primary_form_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='sale_order_template_id']" position="after">
+                <field name="unit"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="rental_order_list_view_inherit" model="ir.ui.view">
+        <field name="name">sale.order.list.inherit.al.zaytoun</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_renting.rental_order_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="unit"/>
+            </xpath>
+            <xpath expr="//field[@name='amount_total']" position="before">
+                <field name="unit_products"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
